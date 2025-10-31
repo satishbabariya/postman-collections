@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "781399-20dbde24-31ab-4065-8284-a2ad65e7dccc",
+		"name": "Travis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://api.travis-ci.com/",
+			"id": "781399-739ec9d4-9813-425a-b573-4a053ecd043e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Travis-API-Version",
+						"value": "3"
+					},
+					{
+						"key": "User-Agent",
+						"value": "API Explorer"
+					},
+					{
+						"key": "Authorization",
+						"value": "token aZ5NsG-vrG49_ia8zE9o0g"
+					}
+				],
+				"url": {
+					"raw": "https://api.travis-ci.com/",
+					"protocol": "https",
+					"host": [
+						"api",
+						"travis-ci",
+						"com"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "Generated from a curl request: \ncurl -H \\\"Travis-API-Version: 3\\\" -H \\\"User-Agent: API Explorer\\\" \\\n  -H \\\"Authorization: token aZ5NsG-vrG49_ia8zE9o0g\\\" \\\n  https://api.travis-ci.com/"
+			},
+			"response": []
+		}
+	]
+}
