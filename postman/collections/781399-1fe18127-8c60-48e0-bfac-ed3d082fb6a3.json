@@ -1,0 +1,1377 @@
+{
+	"info": {
+		"_postman_id": "781399-1fe18127-8c60-48e0-bfac-ed3d082fb6a3",
+		"name": "WorkOS API",
+		"description": "You can find the full API reference in the [WorkOS documentation site](https://workos.com/docs/reference)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Organizations",
+			"item": [
+				{
+					"name": "Get an Organization",
+					"id": "781399-9321d3ce-0d32-4d8c-8e97-1b64bffb0b90",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/organizations/{{organization_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"organizations",
+								"{{organization_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Organizations",
+					"id": "781399-14cf63ff-64e5-4b6f-9c8c-53f0ecd0fe20",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/organizations",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"organizations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create an Organization",
+					"id": "781399-f00c548d-9ed9-48bc-a064-437febe606cf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Idempotency-Key",
+								"value": "{{idempotency_key}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"<Descriptive name for the organization>\",\n    \"domains\": [\"<Domains of the organization>\"],\n    \"allow_profiles_outside_organization\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/organizations",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"organizations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update an Organization",
+					"id": "781399-f8edbe71-a97e-4ce8-9ef5-8bad1e50ebd6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "<string>",
+									"description": "A descriptive name for the Organization. This field does not need to be unique.",
+									"type": "text"
+								},
+								{
+									"key": "domains[]",
+									"value": "<string>",
+									"description": "The domains of the Organization.  At least one domain is required unless allow_profiles_outside_organization is true.",
+									"type": "text"
+								},
+								{
+									"key": "domains[]",
+									"value": "<string>",
+									"description": "Enter each domain as an individual entry",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/organizations/{{organization_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"organizations",
+								"{{organization_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an Organization",
+					"id": "781399-148c02a1-07f1-42c0-a9cd-83f4dc8cfed9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/organizations/{{organization_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"organizations",
+								"{{organization_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "781399-396d3d03-53fd-4430-9079-646c1e635854"
+		},
+		{
+			"name": "Single Sign-On",
+			"item": [
+				{
+					"name": "Connection",
+					"item": [
+						{
+							"name": "Get a Connection",
+							"id": "781399-7e15f890-777f-4644-8ec0-b1b702f06a97",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{api_key}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/connections/{{connection_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"connections",
+										"{{connection_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Connections",
+							"id": "781399-0600e522-3643-40e3-8443-9658d6df660e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{api_key}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/connections",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"connections"
+									],
+									"query": [
+										{
+											"key": "connection_type",
+											"value": "<string>",
+											"description": "Filter connections by their type.",
+											"disabled": true
+										},
+										{
+											"key": "domain",
+											"value": "<string>",
+											"description": "Filter Connections by their associated domain.",
+											"disabled": true
+										},
+										{
+											"key": "organization_id",
+											"value": "<string>",
+											"description": "Filter Connections by their associated organization.",
+											"disabled": true
+										},
+										{
+											"key": "after",
+											"value": "<string>",
+											"description": "A cursor to use for pagination. after is an object ID that defines your place in the list. For example, if you make a list request and receive 100 objects, ending with obj_123, your subsequent call can include after=obj_123 to fetch a new batch of objects after obj_123.",
+											"disabled": true
+										},
+										{
+											"key": "before",
+											"value": "<string>",
+											"description": "A cursor to use for pagination. before is an object ID that defines your place in the list. For example, if you make a list request and receive 100 objects, ending with obj_123, your subsequent call can include before=obj_123 to fetch a new batch of objects before obj_123.",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "<number>",
+											"description": "Upper limit on the number of objects to return, between 1 and 100. The default value is 10.",
+											"disabled": true
+										},
+										{
+											"key": "order",
+											"value": "<\"asc\" | \"desc\">",
+											"description": "Order the results by the creation time. Supported values are \"asc\" and \"desc\" for ascending and descending order respectively.\n\n",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Connection",
+							"id": "781399-36dc3d83-540a-4197-9c74-79cdb841a8e9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{api_key}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/connections/{{connection_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"connections",
+										"{{connection_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "781399-0a088cb3-d698-4857-a391-d3425c755f85"
+				},
+				{
+					"name": "Get Authorization URL",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "557f37fa-38e8-4280-8669-bc4fa035b213"
+							}
+						}
+					],
+					"id": "781399-02258875-7ce6-4fae-9d83-893cd14e7408",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {
+							"content-type": true
+						},
+						"followRedirects": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/sso/authorize?response_type=code&client_id={{client_id}}&redirect_uri=<string>&organization=<string>",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"sso",
+								"authorize"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "code",
+									"description": "The only valid option for the response type parameter is code.\n\nThe code parameter value initiates an Authorization Code Grant Type. This grant type allows a Developer to exchange an authorization code for an access token during the redirect that takes place after a user has authenticated with an Identity Provider."
+								},
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"description": "This value can be obtained from the SSO Configuration page in the WorkOS dashboard."
+								},
+								{
+									"key": "redirect_uri",
+									"value": "<string>",
+									"description": "A Redirect URI to return an authorized user to."
+								},
+								{
+									"key": "organization",
+									"value": "<string>",
+									"description": "The organization connection selector is used to initiate SSO for an Organization.\n\nThe value of this parameter should be a WorkOS Organization ID.\n\nFor example, the Developer can persist the WorkOS Organization ID with application User or Team identifiers. WorkOS will use the organization connection selector to determine the appropriate Connection and IdP to direct the user to for authentication."
+								},
+								{
+									"key": "connection",
+									"value": "<string>",
+									"description": "The connection connection selector is used to initiate SSO for a Connection.\n\nThe value of this parameter should be a WorkOS Connection ID.\n\nFor example, the Developer can persist the WorkOS Connection ID with application User or Team identifiers. WorkOS will use the Connection indicated by the connection parameter to direct the user to the corresponding IdP for authentication.",
+									"disabled": true
+								},
+								{
+									"key": "provider",
+									"value": "<\"GoogleOAuth\" | \"MicrosoftOAuth\"> ",
+									"description": "The provider connection selector is used to initiate SSO using an OAuth provider.\n\nCurrently, the only supported values for provider are GoogleOAuth and MicrosoftOAuth. Provide the provider parameter when authenticating Google OAuth users, because Google OAuth does not take a user’s domain into account when logging in with a “Sign in with Google” button.",
+									"disabled": true
+								},
+								{
+									"key": "state",
+									"value": "<string>",
+									"description": "An optional parameter that can be used to encode arbitrary information to help restore application state between redirects. If included, the redirect URI received from WorkOS will contain the exact state that was passed.",
+									"disabled": true
+								},
+								{
+									"key": "login_hint",
+									"value": "<string>",
+									"description": "Can be used to pre-fill the username/email address field of the IdP sign-in page for the user, if you know their username ahead of time.\n\nCurrently, this parameter is only supported for OAuth, and OpenID Connect connection types.",
+									"disabled": true
+								},
+								{
+									"key": "domain_hint",
+									"value": "<string>",
+									"description": "Can be used to pre-fill the domain field when initiating authentication with Microsoft OAuth.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Profile and Token",
+					"id": "781399-798299bd-ac65-472e-89ef-ca51c0c1b61a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/sso/token?client_id={{client_id}}&client_secret={{api_key}}&grant_type=authorization_code&code={{authorization_code}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"sso",
+								"token"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"description": "This value can be obtained from the SSO Configuration page in the WorkOS dashboard.\n"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{api_key}}",
+									"description": "You can view and manage your API keys in the WorkOS Dashboard\n"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"description": "The grant type should always be authorization_code."
+								},
+								{
+									"key": "code",
+									"value": "{{authorization_code}}",
+									"description": "An access token that can be exchanged for a user profile. Access tokens are one-time use and expire 10 minutes after they’re created."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a User Profile",
+					"id": "781399-7261374f-4572-460e-a334-0c1fc7eabb96",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{profile_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/sso/profile",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"sso",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "781399-d14d5b54-62e2-47cf-a924-56477591a966"
+		},
+		{
+			"name": "Directory Sync",
+			"item": [
+				{
+					"name": "Directory",
+					"item": [
+						{
+							"name": "Get a Directory",
+							"id": "781399-1ea27cce-562e-4a5d-bab6-4fd8b47188a5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{api_key}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/directories/{{directory_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"directories",
+										"{{directory_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Directories",
+							"id": "781399-7ee181da-f516-4595-ae1b-86e40d2497e9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{api_key}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/directories?search={{searchable_text}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"directories"
+									],
+									"query": [
+										{
+											"key": "search",
+											"value": "{{searchable_text}}",
+											"description": "Searchable text to match against Directory names"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Directory",
+							"id": "781399-a30a50f2-3fb5-4c63-92a6-b436738505d6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{api_key}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/directories/{{directory_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"directories",
+										"{{directory_id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "781399-a0050a8d-14df-4449-8b3c-9e4423043240"
+				},
+				{
+					"name": "Directory User",
+					"item": [
+						{
+							"name": "Get a Directory User",
+							"id": "781399-82e105d3-d034-4e68-9c99-f636e7bd5b56",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{api_key}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/directory_users/{{directory_user_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"directory_users",
+										"{{directory_user_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Directory Users",
+							"id": "781399-39c9c912-1c95-42f1-933b-6ea8bdd090d5",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{api_key}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/directory_users?directory={{directory_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"directory_users"
+									],
+									"query": [
+										{
+											"key": "directory",
+											"value": "{{directory_id}}",
+											"description": "Unique identifier of the WorkOS Directory"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "781399-bbf2ab55-fe55-48d8-adb8-6a9f6fe6016a"
+				},
+				{
+					"name": "Directory Group",
+					"item": [
+						{
+							"name": "Get a Directory Group",
+							"id": "781399-fe0283a5-70c5-4641-af83-772ed2183fc2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{api_key}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/directory_groups/{{directory_group_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"directory_groups",
+										"{{directory_group_id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Directory Groups",
+							"id": "781399-2058f45c-b2f0-462b-aab3-52618dab3038",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{api_key}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/directory_groups?directory={{directory_id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"directory_groups"
+									],
+									"query": [
+										{
+											"key": "directory",
+											"value": "{{directory_id}}",
+											"description": "Unique identifier of the WorkOS Directory"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "781399-a2d2c99b-b294-40a1-a14c-73ca075bfb03"
+				}
+			],
+			"id": "781399-fd58252b-e3c2-4807-8626-8ccb10f37c77"
+		},
+		{
+			"name": "Admin Portal",
+			"item": [
+				{
+					"name": "Generate a Portal Link",
+					"id": "781399-abdb94cf-ef62-4d73-a2f5-6f09a909b37e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Idempotency-Key",
+								"value": "{{idempotency_key}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "organization",
+									"value": "{{organization_id}}",
+									"description": "Unique identifier of the Organization\n",
+									"type": "text"
+								},
+								{
+									"key": "intent",
+									"value": "<enum: sso | dsync | audit_logs | log_streams> ",
+									"description": "The intent of the Admin Portal.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/portal/generate_link",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"portal",
+								"generate_link"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "781399-2a4b8001-a746-40f6-8127-210d9d50c129"
+		},
+		{
+			"name": "Magic Link",
+			"item": [
+				{
+					"name": "Create a Passwordless Session",
+					"id": "781399-2e5b73d3-0674-440b-b7cb-53cfcc569734",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Idempotency-Key",
+								"value": "{{idempotency_key}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "<string>",
+									"description": "The email of the user to authenticate.",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "MagicLink",
+									"description": "The type of Passwordless Session to create. Currently, the only supported value is MagicLink.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/passwordless/sessions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"passwordless",
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Email a Magic Link",
+					"id": "781399-919871e6-2d7c-4ace-ac32-d9573984b89b",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Idempotency-Key",
+								"value": "{{idempotency_key}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/passwordless/sessions/{{passwordless_session_id}}/send",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"passwordless",
+								"sessions",
+								"{{passwordless_session_id}}",
+								"send"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "781399-14767ce0-98e8-4908-abe2-bf8664309042"
+		},
+		{
+			"name": "Audit Logs",
+			"item": [
+				{
+					"name": "Create Event",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"id": "727bfc9d-1d49-4846-850d-9dd73f40f7b6"
+							}
+						}
+					],
+					"id": "781399-fc46e8f3-a461-4cdc-8130-fa513522ab96",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Idempotency-Key",
+								"value": "{{Idempotency_Key}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"organization_id\": \"<Organization ID>\",\n    \"event\": {\n      \"action\": \"<Identitifer of what happened>\",\n      \"occurred_at\": \"<ISO-8601 value of when the action occurred>\",\n      \"version\": 1,\n      \"actor\": {\n        \"type\": \"<Actor type>\",\n        \"id\": \"<Actor ID>\",\n        \"name\": \"<Optional actor name>\",\n        \"metadata\": {\n          \"role\": \"<Additional data associated with the event>\"\n        }\n      },\n      \"targets\": [\n        {\n          \"type\": \"<Target type>\",\n          \"id\": \"<Target ID>\",\n          \"name\": \"<Optional target name>\"\n        }        \n      ],\n      \"context\": {\n        \"location\": \"<IP Address or some other geolocation identifie>\",\n        \"user_agent\": \"<User agent string>\"\n      },\n      \"metadata\": {\n        \"extra\": \"<Additional data associated with the event>\"\n      }\n    }\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/audit_logs/events",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"audit_logs",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Export",
+					"id": "781399-491673f4-4c77-46b6-9940-ca4c7cb09afd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Idempotency-Key",
+								"value": "{{Idempotency_Key}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"organization_id\": \"{{organization_id}}\",\n    \"range_start\": \"2022-07-02T18:09:06.996Z\",\n    \"range_end\": \"2022-09-02T18:09:06.996Z\",\n    \"actions\": [\"<Optional list of actions to filter against>\"],\n    \"actors\": [\"<Optional list of actors to filter against>\"],\n    \"targets\": [\"<Optional list of targets to filter against>\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/audit_logs/exports",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"audit_logs",
+								"exports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Export",
+					"id": "781399-ae5a7c4b-c37e-47e4-9d50-deb878433fa0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/audit_logs/exports/{{audit_log_export_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"audit_logs",
+								"exports",
+								"{{audit_log_export_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "781399-72723d86-8934-49a1-8c7a-f7f49ee726ae"
+		},
+		{
+			"name": "Multi-Factor Auth",
+			"item": [
+				{
+					"name": "Enroll Factor",
+					"id": "781399-b27f0484-fd00-4f6f-8f56-628fb3300d0a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Idempotency-Key",
+								"value": "{{idempotency_key}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "type",
+									"value": "<enum: totp | sms> ",
+									"description": "The type the Factor. Can be either totp or sms.\n",
+									"type": "text"
+								},
+								{
+									"key": "totp_issuer",
+									"value": "<string>",
+									"description": "An identifier for the organization issuing the challenge. Should be the name of your application or company. Required when type is totp.",
+									"type": "text"
+								},
+								{
+									"key": "totp_user",
+									"value": "<string> ",
+									"description": "An identifier for the user. Used by authenticator apps to label connections. Required when type is totp.",
+									"type": "text"
+								},
+								{
+									"key": "phone_number",
+									"value": "<string>",
+									"description": "A valid phone number for an SMS-enabled device. Required when type is sms.\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/factors/enroll",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"factors",
+								"enroll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Challenge Factor",
+					"id": "781399-441b6ac7-20ab-4be4-819a-8a22b46d4c0c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Idempotency-Key",
+								"value": "{{idempotency_key}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/auth/factors/{{authentication_factor_id}}/challenge",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"factors",
+								"{{authentication_factor_id}}",
+								"challenge"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Challenge",
+					"id": "781399-3f450b16-a870-4fe4-9174-3a212f32e69d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Idempotency-Key",
+								"value": "{{idempotency_key}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"your_6_digit_code\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/challenges/{{authentication_challenge_id}}/verify",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"challenges",
+								"{{authentication_challenge_id}}",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Factor",
+					"id": "781399-a4808ff6-2128-4993-a924-bd1282b29dc3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/factors/{{authentication_factor_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"factors",
+								"{{authentication_factor_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Factor",
+					"id": "781399-6bb33a96-287e-46ff-815e-063200a566d9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{api_key}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/factors/{{authentication_factor_id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"factors",
+								"{{authentication_factor_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "781399-109ef844-390c-4611-bbc4-14cb8193f4d3"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "f54b2d23-8949-4719-bc44-c302c8d7c7ed"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "3f07ad06-23f4-456f-9342-fd372ba92064"
+			}
+		}
+	]
+}
